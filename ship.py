@@ -8,7 +8,7 @@ class Ship():
         self.ai_settings = ai_settings
 
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load('images/ship.bmp').convert_alpha()
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
@@ -41,6 +41,9 @@ class Ship():
         # 根据self.center更新rect对象
         self.rect.centerx = self.centerx
         self.rect.bottom = self.bottom
+
+    def center_ship(self):
+        self.center = self.screen_rect.centerx
 
 
     def blitme(self):
